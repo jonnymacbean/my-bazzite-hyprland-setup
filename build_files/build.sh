@@ -9,16 +9,15 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-dnf rm firefox
-
 # Install librewolf & mullvad repos
-dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
-dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewolf.repo
+dnf config-manager addrepo -y --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 
 # this installs a package from fedora repos
 dnf5 install -y \
   librewolf \
-  keepassxc  
+  keepassxc \
+  nautilus
   
 
 # Use a COPR Example:
