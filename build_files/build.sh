@@ -35,7 +35,6 @@ dnf install -y --allowerasing \
 mv /opt /usr/share/factory
 ln -s /var/opt /opt
 rm -f mullvad-vpn.rpm
-flatpak uninstall -y --noninteractive org.mozilla.firefox
 dnf -y copr disable solopasha/hyprland
 
 #### Example for enabling a System Unit File
