@@ -8,7 +8,7 @@ dnf -y copr enable solopasha/hyprland
 
 
 # install packages
-dnf install -y \
+dnf install -y --allowerasing \
   librewolf \
   keepassxc \
   nautilus \
