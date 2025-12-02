@@ -12,9 +12,8 @@ dnf install -y \
   librewolf \
   keepassxc \
   nautilus \
-  qt6ct-kde			\
-	hyprland-qt-support	\
-	hyprland-qtutils \
+  hyprland-qt-support \
+  hyprland-qtutils \
   hyprland \
   hyprpaper \
   hypridle \
