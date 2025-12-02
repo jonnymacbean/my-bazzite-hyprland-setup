@@ -2,30 +2,36 @@
 
 set -ouex pipefail
 
-### Install packages
-
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-# Install librewolf & mullvad repos
+# Install repos
 dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewolf.repo
-dnf config-manager addrepo -y --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+dnf -y copr enable solopasha/hyprland
 
-# this installs a package from fedora repos
-dnf5 install -y \
+
+# install packages
+dnf install -y \
   librewolf \
   keepassxc \
-  nautilus
-  
+  nautilus \
+  hyprland \
+  hyprpaper \
+  hypridle \
+  hyprlock \
+  hyprsunset \
+  hyprpanel \
+  waypaper \
+  hyprpolkitagent \
+  hyprsysteminfo \
+  alacritty
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+
+# install Mullvad VPN
+wget -O mullvad-vpn.rpm --trust-server-names https://mullvad.net/download/app/rpm/latest
+dnf install ./mullvad-vpn.rpm
+
+# Cleanup
+rm -f mullvad-vpn.rpm
+flatpak rm org.mozilla.firefox
+dnf -y copr disable solopasha/hyprland
 
 #### Example for enabling a System Unit File
 
