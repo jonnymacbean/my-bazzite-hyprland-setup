@@ -11,9 +11,10 @@ dnf -y copr enable solopasha/hyprland
 rm /opt
 mkdir /opt
 
+dnf -y remove plasma-* kde-*
 
 # install packages
-dnf install -y --allowerasing \
+dnf install -y \
   librewolf \
   keepassxc \
   nautilus \
@@ -29,6 +30,10 @@ dnf install -y --allowerasing \
   hyprpolkitagent \
   hyprsysteminfo \
   alacritty \
+  sddm			\
+	pipewire		\
+	wofi			\
+	brightnessctl \
   mullvad-vpn
 
 # Cleanup
