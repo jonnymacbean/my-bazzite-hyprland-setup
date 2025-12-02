@@ -28,11 +28,11 @@ dnf install -y --allowerasing \
 
 # install Mullvad VPN
 wget -O mullvad-vpn.rpm --trust-server-names https://mullvad.net/download/app/rpm/latest
-dnf install ./mullvad-vpn.rpm
+dnf install -y ./mullvad-vpn.rpm
 
 # Cleanup
 rm -f mullvad-vpn.rpm
-flatpak rm org.mozilla.firefox
+flatpak uninstall -y --noninteractive org.mozilla.firefox
 dnf -y copr disable solopasha/hyprland
 
 #### Example for enabling a System Unit File
