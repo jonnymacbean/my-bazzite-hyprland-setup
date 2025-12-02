@@ -12,6 +12,7 @@ dnf install -y \
   librewolf \
   keepassxc \
   nautilus \
+  qt6-qtbase \
   hyprland \
   hyprpaper \
   hypridle \
