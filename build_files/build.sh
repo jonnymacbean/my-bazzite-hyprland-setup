@@ -16,6 +16,7 @@ dnf -y remove plasma-* kde-*
 
 # install packages
 dnf install -y \
+  sddm \
   librewolf \
   keepassxc \
   nautilus \
