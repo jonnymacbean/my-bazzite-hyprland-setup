@@ -22,10 +22,10 @@ dnf install -y \
   wget \
   unzip \
   gum \
-  rsync \ 
+  rsync \
   git \
   figlet \
-  xdg-user-dirs \   
+  xdg-user-dirs \
   hyprland \
   hyprpaper \
   hyprlock \
@@ -33,7 +33,7 @@ dnf install -y \
   hyprpicker \
   xdg-desktop-portal-gtk \
   xdg-desktop-portal-hyprland \
-  libnotify \ 
+  libnotify \
   kitty \
   qt5-wayland \
   qt6-wayland \
