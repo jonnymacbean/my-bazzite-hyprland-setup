@@ -40,7 +40,6 @@ dnf install -y \
   qt5-qtwayland \
   qt6-qtwayland \
   fastfetch \
-  #rust-eza \
   python-pip \
   python-gobject \
   python-screeninfo \
@@ -62,7 +61,6 @@ dnf install -y \
   qt6ct \
   waybar \
   rofi-wayland \
-  # polkit-gnome \
   zsh \
   zsh-completions \
   fzf \
@@ -75,14 +73,16 @@ dnf install -y \
   gvfs \
   wlogout \
   waypaper \
-  # bibata-cursor-theme \
-  # pacseek \
   fontawesome-fonts \
   fira-code-fonts \
   nwg-dock-hyprland \
+  vlc
+  #rust-eza \
+  # polkit-gnome \
+  # bibata-cursor-theme \
+  # pacseek \
   # power-profiles-daemon \
   # python-pywalfox \
-  vlc
 
 flatpak install flathub com.ml4w.dotfilesinstaller
 
