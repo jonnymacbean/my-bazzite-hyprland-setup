@@ -31,10 +31,31 @@ dnf install -y \
   hyprsysteminfo \
   alacritty \
   sddm			\
-	pipewire		\
-	wofi			\
-	brightnessctl \
+  pipewire		\
+  wofi			\
+  brightnessctl \
   mullvad-vpn
+
+# KooL's Hyprland Dotfiles
+git clone https://github.com/JaKooLit/Fedora-Hyprland.git
+cd Fedora-Hyprland
+echo <<EOF > presets.txt
+gtk_themes="ON"
+bluetooth="OFF"
+thunar="ON"
+quickshell="ON"
+sddm="ON"
+sddm_theme="ON"
+xdph="OFF"
+zsh="ON"
+pokemon="ON"
+rog="OFF"
+dots="ON"
+input_group="ON"
+nvidia="OFF"
+EOF
+
+yes | ./install.sh presets.txt
 
 # Cleanup
 mv /opt /usr/share/factory
