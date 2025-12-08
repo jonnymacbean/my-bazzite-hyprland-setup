@@ -5,6 +5,7 @@ set -ouex pipefail
 # Install repos
 dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewolf.repo
 dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/beta/mullvad.repo
+dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/Fedora_Rawhide/shells:zsh-users:zsh-completions.repo
 dnf -y copr enable solopasha/hyprland
 
 # Enable writing to /opt
@@ -27,6 +28,7 @@ dnf install -y \
   figlet \
   xdg-user-dirs \
   hyprland \
+  hyprland-contrib \
   hyprpaper \
   hyprlock \
   hypridle \
@@ -35,10 +37,10 @@ dnf install -y \
   xdg-desktop-portal-hyprland \
   libnotify \
   kitty \
-  qt5-wayland \
-  qt6-wayland \
+  qt5-qtwayland \
+  qt6-qtwayland \
   fastfetch \
-  eza \
+  rust-eza \
   python-pip \
   python-gobject \
   python-screeninfo \
@@ -46,7 +48,7 @@ dnf install -y \
   brightnessctl \
   nm-connection-editor \
   network-manager-applet \
-  imagemagick \
+  ImageMagick \
   jq \
   xclip \
   kitty \
@@ -60,28 +62,26 @@ dnf install -y \
   qt6ct \
   waybar \
   rofi-wayland \
-  polkit-gnome \
+  # polkit-gnome \
   zsh \
   zsh-completions \
   fzf \
   pavucontrol \
   papirus-icon-theme \
-  breeze \
+  plasma-breeze \
+  breeze-gtk \
   flatpak \
   swaync \
   gvfs \
   wlogout \
   waypaper \
-  grimblast-git \
-  bibata-cursor-theme \
-  pacseek \
-  otf-font-awesome \
-  ttf-fira-sans \
-  ttf-fira-code \
-  ttf-firacode-nerd \
+  # bibata-cursor-theme \
+  # pacseek \
+  fontawesome-fonts \
+  fira-code-fonts \
   nwg-dock-hyprland \
-  power-profiles-daemon \
-  python-pywalfox \
+  # power-profiles-daemon \
+  # python-pywalfox \
   vlc
 
 flatpak install flathub com.ml4w.dotfilesinstaller
