@@ -18,49 +18,77 @@ dnf install -y \
   librewolf \
   keepassxc \
   nautilus \
-  hyprland-qt-support \
-  hyprland-qtutils \
+  mullvad-vpn \
+  wget \
+  unzip \
+  gum \
+  rsync \ 
+  git \
+  figlet \
+  xdg-user-dirs \   
   hyprland \
   hyprpaper \
-  hypridle \
   hyprlock \
-  hyprsunset \
-  hyprpanel \
-  waypaper \
-  hyprpolkitagent \
-  hyprsysteminfo \
-  alacritty \
-  sddm			\
-  pipewire		\
-  wofi			\
+  hypridle \
+  hyprpicker \
+  xdg-desktop-portal-gtk \
+  xdg-desktop-portal-hyprland \
+  libnotify \ 
+  kitty \
+  qt5-wayland \
+  qt6-wayland \
+  fastfetch \
+  eza \
+  python-pip \
+  python-gobject \
+  python-screeninfo \
+  tumbler \
   brightnessctl \
-  mullvad-vpn
+  nm-connection-editor \
+  network-manager-applet \
+  imagemagick \
+  jq \
+  xclip \
+  kitty \
+  neovim \
+  htop \
+  blueman \
+  grim \
+  slurp \
+  cliphist \
+  nwg-look \
+  qt6ct \
+  waybar \
+  rofi-wayland \
+  polkit-gnome \
+  zsh \
+  zsh-completions \
+  fzf \
+  pavucontrol \
+  papirus-icon-theme \
+  breeze \
+  flatpak \
+  swaync \
+  gvfs \
+  wlogout \
+  waypaper \
+  grimblast-git \
+  bibata-cursor-theme \
+  pacseek \
+  otf-font-awesome \
+  ttf-fira-sans \
+  ttf-fira-code \
+  ttf-firacode-nerd \
+  nwg-dock-hyprland \
+  power-profiles-daemon \
+  python-pywalfox \
+  vlc
 
-# KooL's Hyprland Dotfiles
-git clone https://github.com/JaKooLit/Fedora-Hyprland.git
-cd Fedora-Hyprland
-echo <<EOF > presets.txt
-gtk_themes="ON"
-bluetooth="OFF"
-thunar="ON"
-quickshell="ON"
-sddm="ON"
-sddm_theme="ON"
-xdph="OFF"
-zsh="ON"
-pokemon="ON"
-rog="OFF"
-dots="ON"
-input_group="ON"
-nvidia="OFF"
-EOF
-
-yes | ./install.sh presets.txt
+flatpak install flathub com.ml4w.dotfilesinstaller
 
 # Cleanup
 mv /opt /usr/share/factory
 ln -s /var/opt /opt
-rm -f mullvad-vpn.rpm
 dnf -y copr disable solopasha/hyprland
 
 #### Example for enabling a System Unit File
