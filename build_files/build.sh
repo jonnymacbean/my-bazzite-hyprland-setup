@@ -84,7 +84,7 @@ dnf install -y \
   # power-profiles-daemon \
   # python-pywalfox \
 
-flatpak install flathub com.ml4w.dotfilesinstaller
+# flatpak install flathub com.ml4w.dotfilesinstaller
 
 # Cleanup
 mv /opt /usr/share/factory
