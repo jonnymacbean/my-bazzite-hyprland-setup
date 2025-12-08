@@ -40,7 +40,7 @@ dnf install -y \
   qt5-qtwayland \
   qt6-qtwayland \
   fastfetch \
-  rust-eza \
+  #rust-eza \
   python-pip \
   python-gobject \
   python-screeninfo \
