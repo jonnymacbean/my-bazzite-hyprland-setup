@@ -79,7 +79,8 @@ dnf install -y \
   cliphist \
   gvfs \
   grim \
-  breeze
+  breeze-gtk \
+  plasma-breeze
 
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles/setup
