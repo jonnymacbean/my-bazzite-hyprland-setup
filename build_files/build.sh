@@ -7,6 +7,10 @@ dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewo
 dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/beta/mullvad.repo
 dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/Fedora_Rawhide/shells:zsh-users:zsh-completions.repo
 dnf -y copr enable solopasha/hyprland
+dnf -y copr enable peterwu/rendezvous
+dnf -y copr enable wef/cliphist
+dnf -y copr enable tofik/nwg-shell
+dnf -y copr enable erikreider/SwayNotificationCenter
 
 # Enable writing to /opt
 rm /opt
@@ -19,79 +23,82 @@ dnf install -y \
   sddm \
   librewolf \
   keepassxc \
-  nautilus \
   mullvad-vpn \
-  wget \
-  unzip \
-  gum \
-  rsync \
-  git \
-  figlet \
-  xdg-user-dirs \
   hyprland \
-  hyprland-contrib \
+  libnotify \
+  qt5-qtwayland \
+  qt6-qtwayland \
+  uwsm \
+  python-pip \
+  python3-gobject \
+  nm-connection-editor \
+  network-manager-applet \
+  fuse \
+  ImageMagick \
+  NetworkManager-tui \
+  waypaper \
+  SwayNotificationCenter \
+  fontawesome-fonts \
+  wget \
+  curl \
+  git \
+  rsync \
+  unzip \
+  jq \
+  flatpak \
+  vim \
+  inotify-tools \
   hyprpaper \
   hyprlock \
   hypridle \
   hyprpicker \
-  xdg-desktop-portal-gtk \
   xdg-desktop-portal-hyprland \
-  libnotify \
   kitty \
-  qt5-qtwayland \
-  qt6-qtwayland \
-  fastfetch \
-  python-pip \
-  python-gobject \
-  python-screeninfo \
-  tumbler \
-  brightnessctl \
-  nm-connection-editor \
-  network-manager-applet \
-  ImageMagick \
-  jq \
-  xclip \
-  kitty \
-  neovim \
-  htop \
-  blueman \
-  grim \
-  slurp \
-  cliphist \
-  nwg-look \
-  qt6ct \
+  wlogout \
+  vlc \
+  nwg-dock-hyprland \
   waybar \
   rofi-wayland \
-  zsh \
-  zsh-completions \
-  fzf \
+  nwg-look \
   pavucontrol \
-  papirus-icon-theme \
-  plasma-breeze \
-  breeze-gtk \
-  flatpak \
-  swaync \
+  neovim \
+  blueman \
+  qt6ct \
+  nautilus \
+  xdg-user-dirs \    
+  xdg-desktop-portal-gtk \    
+  figlet \
+  fastfetch \
+  htop \
+  xclip \
+  zsh \
+  fzf \
+  brightnessctl \
+  tumbler \
+  slurp \
+  cliphist \
   gvfs \
-  wlogout \
-  waypaper \
-  fontawesome-fonts \
-  fira-code-fonts \
-  nwg-dock-hyprland \
-  vlc
-  #rust-eza \
-  # polkit-gnome \
-  # bibata-cursor-theme \
-  # pacseek \
-  # power-profiles-daemon \
-  # python-pywalfox \
+  grim \
+  breeze
 
-# flatpak install flathub com.ml4w.dotfilesinstaller
+git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
+cd dotfiles/setup
+cp packages/eza /usr/bin
+cp scripts/grimblast /usr/bin
+cp -rf fonts/* /usr/share/fonts
+cd ../..
+  
 
+  
 # Cleanup
 mv /opt /usr/share/factory
+rm -rf dotfiles
 ln -s /var/opt /opt
 dnf -y copr disable solopasha/hyprland
-
+dnf -y copr disable peterwu/rendezvous
+dnf -y copr disable wef/cliphist
+dnf -y copr disable tofik/nwg-shell
+dnf -y copr disable erikreider/SwayNotificationCenter
 #### Example for enabling a System Unit File
 
 # systemctl enable podman.socket
