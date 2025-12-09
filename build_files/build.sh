@@ -8,7 +8,7 @@ dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/be
 dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/Fedora_Rawhide/shells:zsh-users:zsh-completions.repo
 dnf -y copr enable solopasha/hyprland
 dnf -y copr enable peterwu/rendezvous
-dnf -y copr enable wef/cliphist
+dnf -y copr enable lbarrys/cliphist
 dnf -y copr enable tofik/nwg-shell
 dnf -y copr enable erikreider/SwayNotificationCenter
 
