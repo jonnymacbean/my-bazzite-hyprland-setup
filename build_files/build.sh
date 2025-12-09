@@ -97,9 +97,6 @@ rm -rf dotfiles
 ln -s /var/opt /opt
 dnf -y copr disable solopasha/hyprland
 dnf -y copr disable peterwu/rendezvous
-dnf -y copr disable wef/cliphist
+dnf -y copr disable lbarrys/cliphist
 dnf -y copr disable tofik/nwg-shell
 dnf -y copr disable erikreider/SwayNotificationCenter
-#### Example for enabling a System Unit File
-
-# systemctl enable podman.socket
