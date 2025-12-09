@@ -65,8 +65,8 @@ dnf install -y \
   blueman \
   qt6ct \
   nautilus \
-  xdg-user-dirs \    
-  xdg-desktop-portal-gtk \    
+  xdg-user-dirs \
+  xdg-desktop-portal-gtk \
   figlet \
   fastfetch \
   htop \
