@@ -92,9 +92,7 @@ cd ../..
 
   
 # Cleanup
-mv /opt /usr/share/factory
 rm -rf dotfiles
-ln -s /var/opt /opt
 dnf -y copr disable solopasha/hyprland
 dnf -y copr disable peterwu/rendezvous
 dnf -y copr disable lbarrys/cliphist
