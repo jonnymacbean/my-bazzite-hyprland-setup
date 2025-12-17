@@ -16,8 +16,6 @@ dnf -y copr enable erikreider/SwayNotificationCenter
 rm /opt
 mkdir /opt
 
-dnf -y remove plasma-* kde-*
-
 # install packages
 dnf install -y \
   sddm \
@@ -80,7 +78,10 @@ dnf install -y \
   gvfs \
   grim \
   breeze-gtk \
-  plasma-breeze
+  plasma-breeze \
+  qt6-qtsvg \
+  qt6-qtvirtualkeyboard \
+  qt6-qtmultimedia
 
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles/setup
@@ -88,7 +89,15 @@ cp packages/eza /usr/bin
 cp scripts/grimblast /usr/bin
 cp -rf fonts/* /usr/share/fonts
 cd ../..
-  
+
+# SDDM theme
+git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
+cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
+echo "[Theme]
+Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
+echo "[General]
+InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf
+sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/black_hole.conf|g' /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
 
   
 # Cleanup
