@@ -82,7 +82,9 @@ dnf install -y \
   plasma-breeze \
   qt6-qtsvg \
   qt6-qtvirtualkeyboard \
-  qt6-qtmultimedia
+  qt6-qtmultimedia \
+  ncdu \
+  tealdeer
 
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles/setup
