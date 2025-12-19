@@ -50,6 +50,7 @@ dnf install -y \
   hyprlock \
   hypridle \
   hyprpicker \
+  hyprpolkitagent \
   xdg-desktop-portal-hyprland \
   kitty \
   wlogout \
