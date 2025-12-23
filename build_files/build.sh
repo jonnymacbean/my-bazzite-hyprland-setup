@@ -51,6 +51,7 @@ dnf install -y \
   hypridle \
   hyprpicker \
   hyprpolkitagent \
+  hyprutils \
   xdg-desktop-portal-hyprland \
   kitty \
   wlogout \
@@ -84,7 +85,8 @@ dnf install -y \
   qt6-qtvirtualkeyboard \
   qt6-qtmultimedia \
   ncdu \
-  tealdeer
+  tealdeer \
+  gamemode
 
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles/setup
