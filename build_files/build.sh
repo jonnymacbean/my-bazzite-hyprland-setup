@@ -29,7 +29,6 @@ dnf install -y \
   uwsm \
   python-pip \
   python3-gobject \
-  nm-connection-editor \
   network-manager-applet \
   fuse \
   ImageMagick \
@@ -86,8 +85,7 @@ dnf install -y \
   qt6-qtmultimedia \
   ncdu \
   tealdeer \
-  gamemode \
-  --exclude=NetworkManager-libnm
+  gamemode
 
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles/setup
