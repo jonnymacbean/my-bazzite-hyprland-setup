@@ -16,6 +16,8 @@ dnf -y copr enable erikreider/SwayNotificationCenter
 rm /opt
 mkdir /opt
 
+dnf remove -y NetworkManager-libnm
+
 # install packages
 dnf install -y \
   sddm \
@@ -29,7 +31,7 @@ dnf install -y \
   uwsm \
   python-pip \
   python3-gobject \
-  nm-connection-editor-1.36.0-6.fc43.x86_64 \
+  nm-connection-editor \
   network-manager-applet \
   fuse \
   ImageMagick \
