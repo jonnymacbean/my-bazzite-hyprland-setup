@@ -29,7 +29,7 @@ dnf install -y \
   uwsm \
   python-pip \
   python3-gobject \
-  nm-connection-editor \
+  nm-connection-editor@1.36.0-6.fc43 \
   network-manager-applet \
   fuse \
   ImageMagick \
