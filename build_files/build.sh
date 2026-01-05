@@ -30,9 +30,9 @@ dnf install -y \
   python-pip \
   python3-gobject \
   network-manager-applet \
+  nm-connection-editor \
   fuse \
   ImageMagick \
-  NetworkManager-tui \
   waypaper \
   SwayNotificationCenter \
   fontawesome-fonts \
