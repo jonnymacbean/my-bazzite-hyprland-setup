@@ -16,8 +16,6 @@ dnf -y copr enable erikreider/SwayNotificationCenter
 rm /opt
 mkdir /opt
 
-dnf list NetworkManager-libnm --showduplicates
-
 # install packages
 dnf install -y \
   sddm \
@@ -88,7 +86,8 @@ dnf install -y \
   qt6-qtmultimedia \
   ncdu \
   tealdeer \
-  gamemode
+  gamemode \
+  --exclude=NetworkManager-libnm
 
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles/setup
