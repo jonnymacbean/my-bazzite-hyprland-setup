@@ -16,7 +16,7 @@ dnf -y copr enable erikreider/SwayNotificationCenter
 rm /opt
 mkdir /opt
 
-dnf remove -y NetworkManager-libnm
+dnf list NetworkManager-libnm --showduplicates
 
 # install packages
 dnf install -y \
