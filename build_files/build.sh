@@ -31,6 +31,7 @@ dnf install -y \
   python3-gobject \
   network-manager-applet \
   nm-connection-editor \
+  NetworkManager-tui \
   fuse \
   ImageMagick \
   waypaper \
