@@ -14,6 +14,7 @@ mkdir /opt
 # ml4w dotfiles setup
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles
+alias gum=echo
 HOME=/etc/skel setup/setup-fedora.sh
 cp -rf dotfiles/* /etc/skel
 
@@ -27,7 +28,9 @@ dnf install -y \
   hyprutils \
   ncdu \
   tealdeer \
-  gamemode
+  gamemode \
+  ripgrep
+  
 
 # SDDM theme
 git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
