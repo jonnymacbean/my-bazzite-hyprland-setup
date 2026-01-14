@@ -5,7 +5,6 @@ set -ouex pipefail
 # Install repos
 dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewolf.repo
 dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/beta/mullvad.repo
-dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/Fedora_Rawhide/shells:zsh-users:zsh-completions.repo
 dnf -y copr enable lbarrys/cliphist
 
 # Enable writing to /opt
