@@ -2,10 +2,14 @@
 
 set -ouex pipefail
 
+export HOME=/etc/skel
+
 # Install repos
 dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewolf.repo
 dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/beta/mullvad.repo
 dnf -y copr enable lbarrys/cliphist
+dnf -y copr enable dejan/lazygit
+dnf -y copr enable atim/bottom
 
 # Enable writing to /opt
 rm /opt
@@ -14,8 +18,9 @@ mkdir /opt
 # ml4w dotfiles setup
 git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles
-alias gum=echo
-HOME=/etc/skel setup/setup-fedora.sh
+# janky workaround for this error: `unable to confirm: could not open a new TTY: open /dev/tty: no such device or address`
+sed -i 's/gum confirm "DO YOU WANT TO START THE SETUP NOW?:/true/g' setup/_lib.sh
+setup/setup-fedora.sh
 cp -rf dotfiles/* /etc/skel
 
 # install packages
@@ -29,8 +34,18 @@ dnf install -y \
   ncdu \
   tealdeer \
   gamemode \
-  ripgrep
-  
+  ripgrep \
+  lazygit \
+  nodejs \
+  bottom \
+  golang
+
+# neovim setup
+npm install -g tree-sitter-cli
+go install github.com/dundee/gdu/v5/cmd/gdu@latest
+rm -rf $HOME/.config/nvim
+git clone --depth 1 https://github.com/AstroNvim/template $HOME/.config/nvim
+rm -rf ~/.config/nvim/.git
 
 # SDDM theme
 git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
