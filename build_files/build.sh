@@ -11,6 +11,12 @@ dnf -y copr enable lbarrys/cliphist
 rm /opt
 mkdir /opt
 
+# ml4w dotfiles setup
+git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
+cd dotfiles
+HOME=/etc/skel setup/setup-fedora.sh
+cp -rf dotfiles/* /etc/skel
+
 # install packages
 dnf install -y \
   sddm \
@@ -22,12 +28,6 @@ dnf install -y \
   ncdu \
   tealdeer \
   gamemode
-
-# ml4w dotfiles setup
-git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
-cd dotfiles
-HOME=/etc/skel setup/setup-fedora.sh
-cp -rf dotfiles/* /etc/skel
 
 # SDDM theme
 git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
