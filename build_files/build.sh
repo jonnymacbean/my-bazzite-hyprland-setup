@@ -20,7 +20,10 @@ git clone --depth 1 https://github.com/mylinuxforwork/dotfiles.git dotfiles
 cd dotfiles
 # janky workaround for this error: `unable to confirm: could not open a new TTY: open /dev/tty: no such device or address`
 sed -i 's/gum confirm "DO YOU WANT TO START THE SETUP NOW?:/true/g' setup/_lib.sh
+# janky workaround for running sudo as root
+sed -i '2i sudo(){"$@"}' setup/setup-fedora.sh
 setup/setup-fedora.sh
+ls -al
 cp -rf dotfiles/* /etc/skel
 
 # install packages
