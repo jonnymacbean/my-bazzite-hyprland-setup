@@ -49,7 +49,8 @@ dnf install -y \
   gamemode \
   ripgrep \
   lazygit \
-  nodejs22 \
+  nodejs \
+  nodejs-npm \
   bottom \
   golang \
   jetbrains-mono-fonts
