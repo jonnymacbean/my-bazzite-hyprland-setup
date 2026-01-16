@@ -52,13 +52,11 @@ dnf install -y \
   nodejs \
   nodejs-npm \
   bottom \
-  golang \
   jetbrains-mono-fonts
 
 # neovim setup
 curl -L -o tree-sitter.gz 'https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz'
 gzip -cd tree-sitter.gz > /usr/bin/tree-sitter
-go install github.com/dundee/gdu/v5/cmd/gdu@latest
 rm -rf $SKEL/.config/nvim
 git clone --depth 1 https://github.com/AstroNvim/template $SKEL/.config/nvim
 rm -rf ~/.config/nvim/.git
