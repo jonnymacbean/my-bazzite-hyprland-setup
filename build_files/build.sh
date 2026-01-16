@@ -56,7 +56,8 @@ dnf install -y \
   jetbrains-mono-fonts
 
 # neovim setup
-npm install -g tree-sitter-cli
+curl -o tree-sitter.gz 'https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz'
+gzip -cd tree-sitter.gz > /usr/bin/tree-sitter
 go install github.com/dundee/gdu/v5/cmd/gdu@latest
 rm -rf $SKEL/.config/nvim
 git clone --depth 1 https://github.com/AstroNvim/template $SKEL/.config/nvim
@@ -74,6 +75,7 @@ sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/black_hole.conf|g' 
   
 # Cleanup
 rm -rf dotfiles
+rm -rf tree-sitter.gz
 dnf -y copr disable lbarrys/cliphist
 dnf -y copr disable dejan/lazygit
 dnf -y copr disable atim/bottom
