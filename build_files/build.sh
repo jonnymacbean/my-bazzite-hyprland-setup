@@ -70,7 +70,7 @@ echo "[General]
 InputMethod=qtvirtualkeyboard" | tee /etc/sddm.conf.d/virtualkbd.conf
 sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/black_hole.conf|g' /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
 
-  
+cp -rf /ctx/files/.config /ctx/files/.gitconfig /etc/skel
 # Cleanup
 rm -rf dotfiles
 rm -rf tree-sitter.gz
