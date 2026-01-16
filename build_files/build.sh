@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-export HOME=/etc/skel
+SKEL=/etc/skel
 
 # Install repos
 dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewolf.repo
@@ -22,9 +22,9 @@ cd dotfiles
 sed -i 's/gum confirm "DO YOU WANT TO START THE SETUP NOW?:/true/g' setup/_lib.sh
 # janky workaround for running sudo as root
 sed -i '2i sudo() { "$@" ; }' setup/setup-fedora.sh
-setup/setup-fedora.sh
+HOME=$SKEL setup/setup-fedora.sh
 cd dotfiles
-cp -rf .config .Xresources .bashrc .gtkrc-2.0 .zshrc /etc/skel
+cp -rf .config .Xresources .bashrc .gtkrc-2.0 .zshrc $SKEL
 curl https://mylinuxforwork.github.io/ml4w-flatpak-repo/ml4w-apps-public-key.asc -o public.key
 flatpak remote-add --if-not-exists ml4w-repo https://mylinuxforwork.github.io/ml4w-flatpak-repo/ml4w-apps.flatpakrepo --gpg-import=public.key
 FLATPAKS="\
@@ -57,8 +57,8 @@ dnf install -y \
 # neovim setup
 npm install -g tree-sitter-cli
 go install github.com/dundee/gdu/v5/cmd/gdu@latest
-rm -rf $HOME/.config/nvim
-git clone --depth 1 https://github.com/AstroNvim/template $HOME/.config/nvim
+rm -rf $SKEL/.config/nvim
+git clone --depth 1 https://github.com/AstroNvim/template $SKEL/.config/nvim
 rm -rf ~/.config/nvim/.git
 
 # SDDM theme
@@ -74,3 +74,5 @@ sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/black_hole.conf|g' 
 # Cleanup
 rm -rf dotfiles
 dnf -y copr disable lbarrys/cliphist
+dnf -y copr disable dejan/lazygit
+dnf -y copr disable atim/bottom
