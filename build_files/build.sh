@@ -23,9 +23,8 @@ sed -i 's/gum confirm "DO YOU WANT TO START THE SETUP NOW?:/true/g' setup/_lib.s
 # janky workaround for running sudo as root
 sed -i '2i sudo() { "$@" ; }' setup/setup-fedora.sh
 setup/setup-fedora.sh
-for f in dotfiles/*; do
-  cp "$f" /etc/skel
-done
+cd dotfiles
+cp -rf .config .Xresources .bashrc .gtkrc-2.0 .zshrc /etc/skel
 curl https://mylinuxforwork.github.io/ml4w-flatpak-repo/ml4w-apps-public-key.asc -o public.key
 flatpak remote-add --if-not-exists ml4w-repo https://mylinuxforwork.github.io/ml4w-flatpak-repo/ml4w-apps.flatpakrepo --gpg-import=public.key
 FLATPAKS="\
@@ -35,6 +34,7 @@ com.ml4w.sidebar \
 com.ml4w.calendar \
 com.ml4w.hyprlandsettings"
 flatpak --system -y install --reinstall ml4w-repo $FLATPAKS
+cd ../..
 
 # install packages
 dnf install -y \
