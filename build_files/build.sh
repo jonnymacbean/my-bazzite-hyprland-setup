@@ -43,6 +43,7 @@ dnf install -y \
   keepassxc \
   mullvad-vpn \
   hyprpolkitagent \
+  hyprland-guiutils \
   hyprutils \
   ncdu \
   tealdeer \
@@ -70,7 +71,12 @@ echo "[General]
 InputMethod=qtvirtualkeyboard" | tee /etc/sddm.conf.d/virtualkbd.conf
 sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/black_hole.conf|g' /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
 
+# copy custom config
 cp -rf /ctx/files/.config /ctx/files/.gitconfig /etc/skel
+
+# install additional Flatpaks
+flatpak --system -y install --reinstall flathub com.github.iwalton3.jellyfin-media-player dev.vencord.Vesktop
+
 # Cleanup
 rm -rf dotfiles
 rm -rf tree-sitter.gz
