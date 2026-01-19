@@ -37,7 +37,7 @@ flatpak --system -y install --reinstall ml4w-repo $FLATPAKS
 cd ../..
 # install full fontawesome fonts
 dnf remove -y fontawesome-fonts
-curl -L https://use.fontawesome.com/releases/v7.1.0/fontawesome-free-7.1.0-desktop.zip -o fontawesome-free-7.1.0-desktop
+curl -L https://use.fontawesome.com/releases/v7.1.0/fontawesome-free-7.1.0-desktop.zip -o fontawesome-free-7.1.0-desktop.zip
 unzip -j fontawesome-free-7.1.0-desktop.zip 'fontawesome-free-7.1.0-desktop/otfs/*' -d /usr/share/fonts/fontawesome
 
 # install packages
