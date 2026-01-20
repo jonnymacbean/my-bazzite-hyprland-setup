@@ -7,7 +7,7 @@ SKEL=/etc/skel
 # Install repos
 dnf config-manager addrepo -y --from-repofile=https://repo.librewolf.net/librewolf.repo
 dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/beta/mullvad.repo
-dnf -y copr enable lbarrys/cliphist
+dnf -y copr enable guillermodotn/cliphist
 dnf -y copr enable dejan/lazygit
 dnf -y copr enable atim/bottom
 
