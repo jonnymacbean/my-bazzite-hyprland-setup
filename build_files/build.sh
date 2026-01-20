@@ -35,6 +35,7 @@ com.ml4w.calendar \
 com.ml4w.hyprlandsettings"
 flatpak --system -y install --reinstall ml4w-repo $FLATPAKS
 cd ../..
+rm -rf dotfiles
 # install full fontawesome fonts
 dnf remove -y fontawesome-fonts
 curl -L https://use.fontawesome.com/releases/v7.1.0/fontawesome-free-7.1.0-desktop.zip -o fontawesome-free-7.1.0-desktop.zip
@@ -62,6 +63,7 @@ dnf install -y \
 # neovim setup
 curl -L -o tree-sitter.gz 'https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz'
 gzip -cd tree-sitter.gz > /usr/bin/tree-sitter
+rm -rf tree-sitter.gz
 rm -rf $SKEL/.config/nvim
 git clone --depth 1 https://github.com/AstroNvim/template $SKEL/.config/nvim
 rm -rf ~/.config/nvim/.git
@@ -76,14 +78,15 @@ InputMethod=qtvirtualkeyboard" | tee /etc/sddm.conf.d/virtualkbd.conf
 sed -i 's|ConfigFile=Themes/astronaut.conf|ConfigFile=Themes/black_hole.conf|g' /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
 
 # copy custom config
-cp -rf /ctx/files/.config /ctx/files/.gitconfig /etc/skel
+cp -rf /ctx/files/.config /ctx/files/.gitconfig $SKEL
+cd $SKEL/.config/waybar
+cp modules.json modules.json.orig
+jq -s '.[0] * .[1]' <(sed -e 's/\/\/.*$//' modules.json.orig | jq -n -f /dev/stdin) custom.json > modules.json
 
 # install additional Flatpaks
 flatpak --system -y install --reinstall flathub com.github.iwalton3.jellyfin-media-player dev.vencord.Vesktop
 
 # Cleanup
-rm -rf dotfiles
-rm -rf tree-sitter.gz
 dnf -y copr disable lbarrys/cliphist
 dnf -y copr disable dejan/lazygit
 dnf -y copr disable atim/bottom
