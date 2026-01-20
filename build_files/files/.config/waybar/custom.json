@@ -1,0 +1,11 @@
+{
+  "custom/updates": {
+    "format": " {text}",
+    "exec": "~/.config/hypr/scripts/get_last_update_day.sh",
+    "interval": "once",
+    "return-type": "json",
+    "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ujust update",
+    "tooltip": true,
+    "tooltip-format": "{text} day(s) since last image update. Click to check for updates"
+  }
+}
