@@ -87,6 +87,6 @@ jq -s '.[0] * .[1]' <(sed -e 's/\/\/.*$//' modules.json.orig | jq -n -f /dev/std
 flatpak --system -y install --reinstall flathub com.github.iwalton3.jellyfin-media-player dev.vencord.Vesktop
 
 # Cleanup
-dnf -y copr disable lbarrys/cliphist
+dnf -y copr disable guillermodotn/cliphist
 dnf -y copr disable dejan/lazygit
 dnf -y copr disable atim/bottom
